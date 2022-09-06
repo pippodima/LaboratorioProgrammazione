@@ -81,5 +81,6 @@ void Date::setYear(unsigned short year) {
 }
 
 void Date::printDate() const {
-    cout<<day<<"/"<<month<<"/"<<year<<" ";
+    //cout<<day<<"/"<<month<<"/"<<year<<" ";
+    cout<<to_string(day)+"/"+ to_string(month)+"/"+ to_string(year);
 }

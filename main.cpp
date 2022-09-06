@@ -44,6 +44,8 @@ int main() {
 
     agenda->remainingTodo();
 
+    d.printDate();
+
 
     return 0;
 }
