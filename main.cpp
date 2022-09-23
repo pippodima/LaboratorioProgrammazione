@@ -8,11 +8,11 @@ int main() {
     Agenda* agenda=new Agenda("Impegni");
 
 
-    Date d(29,2,2000);
+    Date d(28,2,2000);
     ToDo t("compleanno Alberto",d);
 
-    //d.setMonth(13);  Errore
-    //d.setDay(31); Errore
+    //d.setMonth(13);
+    d.setDay(25);
 
     agenda->howManyTodo();  //test n1
     cout<<endl;
@@ -44,7 +44,7 @@ int main() {
 
     agenda->remainingTodo();
 
-    d.printDate();
+    cout<<d.printDate();
 
 
     return 0;

@@ -27,7 +27,7 @@ public:
     void setDate(const Date &date);
     void printStringDate()const;
     string getStringDate() const;
-    void printTodo()const;
+    string printTodo()const;
 };
 
 

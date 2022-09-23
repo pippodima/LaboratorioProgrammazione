@@ -46,7 +46,7 @@ string ToDo::getStringDate() const{
     return d;
 }
 
-void ToDo::printTodo() const{
-    date.printDate();
-    cout<<" " + name + " "<< stateCheck()<<endl;
+string ToDo::printTodo() const{
+
+    return date.printDate()+" " + name + " "+stateCheck();
 }

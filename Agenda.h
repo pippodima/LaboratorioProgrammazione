@@ -28,7 +28,7 @@ public:
     void changeCheck(string name);
 
     void saveAgenda();
-    void howManyTodo();
+    int howManyTodo();
     void remainingTodo();
 
 

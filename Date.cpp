@@ -66,7 +66,35 @@ unsigned short Date::getMonth() const {
 void Date::setMonth(unsigned short month) {
     if (month<0||month>12)
         throw runtime_error("month number not valid");
-    Date::month = month;
+    int maxDay;
+    switch (month) {
+        case 4: //April
+        case 6: //June
+        case 8: //September
+        case 11: //November
+            maxDay = 30;
+            break;
+        case 2: {
+
+            if (year % 4 == 0) {
+                if (year % 100 == 0) {
+                    if (year % 400 == 0) {
+                        maxDay = 29;
+                    } else {
+                        maxDay = 28;
+                    }
+                } else {
+                    maxDay = 29;
+                }
+            } else {
+                maxDay = 28;
+            }
+        }
+    }
+    if(day<=maxDay)
+        Date::month = month;
+    else
+        throw runtime_error("Too many days for this month");
 }
 
 unsigned short Date::getYear() const {
@@ -80,7 +108,7 @@ void Date::setYear(unsigned short year) {
 
 }
 
-void Date::printDate() const {
-    //cout<<day<<"/"<<month<<"/"<<year<<" ";
-    cout<<to_string(day)+"/"+ to_string(month)+"/"+ to_string(year);
+string Date::printDate() const {
+
+    return to_string(day)+"/"+ to_string(month)+"/"+ to_string(year);
 }

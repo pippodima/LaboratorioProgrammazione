@@ -34,8 +34,7 @@ _List_iterator<ToDo> Agenda::findTodobydate(string date) {
 void Agenda::printAgenda() const{
     int n=0;
     for (auto i=Todos.begin() ; i!=Todos.end();i++) {
-        cout<<++n<< + ") ";
-        i->printTodo();
+        cout<<++n<< + ") "+i->printTodo();
     }
 }
 
@@ -67,8 +66,8 @@ void Agenda::saveAgenda() {
 
 }
 
-void Agenda::howManyTodo() {
-    cout<<"Nell'agenda sono presenti "<<Todos.size()<<" todo"<<endl;
+int Agenda::howManyTodo() {
+    return Todos.size();
 }
 
 void Agenda::remainingTodo() {

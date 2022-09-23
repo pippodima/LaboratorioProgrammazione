@@ -30,7 +30,7 @@ public:
     unsigned short getYear() const;
     void setYear(unsigned short year);
 
-    void printDate() const;
+    string printDate() const;
 };
 
 
