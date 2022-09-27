@@ -14,14 +14,14 @@ void Agenda::removeTodo(string name) {
     saveAgenda();
 }
 
-_List_iterator<ToDo> Agenda::findTodobyname(string name) {
+list<ToDo>::iterator Agenda::findTodobyname(string name) {
     for(auto i=Todos.begin() ; i!=Todos.end();i++)
         if(i->getName()==name)
             return i;
         runtime_error("Todo not found");
 }
 
-_List_iterator<ToDo> Agenda::findTodobydate(string date) {
+list<ToDo>::const_iterator Agenda::findTodobydate(string date) {
     /*int d,m,y;
     sscanf(date.c_str(),"%d%d%d",&d,&m,&y);*/
     for (auto i=Todos.begin() ; i!=Todos.end();i++)
@@ -51,6 +51,7 @@ void Agenda::printTodoInDate(string date) const{
 }
 
 void Agenda::changeCheck(string name) {
+
     findTodobyname(name)->setCheck();
     saveAgenda();
 }
@@ -70,9 +71,12 @@ int Agenda::howManyTodo() {
     return Todos.size();
 }
 
-void Agenda::remainingTodo() {
-    cout<<"I Todo ancora da completare sono:"<<endl;
+int Agenda::remainingTodo() {
+    //cout<<"I t odo ancora da completare sono:"<<endl;
+    int n=0;
     for(auto i=Todos.begin(); i!=Todos.end();i++)
         if(!i->isCheck())
-            cout<<i->getStringDate()<<" "<<i->getName()<<endl;
+            n++;
+            //cout<<i->getStringDate()<<" "<<i->getName()<<endl;
+    return n;
 }

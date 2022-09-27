@@ -8,10 +8,10 @@ int main() {
     Agenda* agenda=new Agenda("Impegni");
 
 
-    Date d(28,2,2000);
+    Date d(31,3,2000);
     ToDo t("compleanno Alberto",d);
 
-    //d.setMonth(13);
+    //d.setMonth(9); //ERRORE
     d.setDay(25);
 
     agenda->howManyTodo();  //test n1
