@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    Agenda* agenda=new Agenda("Impegni");
+    Agenda agenda("Impegni");
 
 
     Date d(31,3,2000);
@@ -14,38 +14,39 @@ int main() {
     //d.setMonth(9); //ERRORE
     d.setDay(25);
 
-    agenda->howManyTodo();  //test n1
+    agenda.howManyTodo();  //test n1
     cout<<endl;
 
 
     Date d2(15,1,2018);
     ToDo t2("cena sushi",d2);
 
-    agenda->addTodo(t);
+    agenda.addTodo(t);
 
-    agenda->howManyTodo();  //test n2
+    agenda.howManyTodo();  //test n2
     cout<<endl;
 
-    agenda->addTodo(t2);
+    agenda.addTodo(t2);
 
-    agenda->printAgenda();
+    agenda.printAgenda();
     cout<<endl;
 
-    agenda->changeCheck("cena sushi");
-    agenda->printAgenda();
+    agenda.changeCheck("cena sushi");
+    agenda.printAgenda();
     cout<<endl;
 
     //agenda->removeTodo("cena sushi");
     //agenda->printAgenda();
 
-    agenda->howManyTodo(); //test n3
+    agenda.howManyTodo(); //test n3
     cout<<endl;
 
 
-    agenda->remainingTodo();
+    agenda.remainingTodo();
 
-    cout<<d.printDate();
+    cout<<d.printDate()<<endl;
 
+    agenda.findTodobyname("cenasushi");
 
     return 0;
 }

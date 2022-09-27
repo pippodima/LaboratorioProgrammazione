@@ -18,7 +18,7 @@ list<ToDo>::iterator Agenda::findTodobyname(string name) {
     for(auto i=Todos.begin() ; i!=Todos.end();i++)
         if(i->getName()==name)
             return i;
-        runtime_error("Todo not found");
+    throw runtime_error("Todo not found");
 }
 
 list<ToDo>::const_iterator Agenda::findTodobydate(string date) {
@@ -27,7 +27,7 @@ list<ToDo>::const_iterator Agenda::findTodobydate(string date) {
     for (auto i=Todos.begin() ; i!=Todos.end();i++)
         if(i->getStringDate()==date)
             return i;
-    runtime_error("Todo not found");
+    throw runtime_error("Todo not found");
 
 }
 
@@ -46,7 +46,7 @@ void Agenda::printTodoInDate(string date) const{
     for (auto i=Todos.begin() ; i!=Todos.end();i++)
         if(i->getStringDate()==date)
             cout<<i->getName() +" " + i->getStringDate()<<endl;
-    runtime_error("Todo not found");
+    throw runtime_error("Todo not found");
 
 }
 

@@ -7,12 +7,18 @@ TEST(Date, setDate) {
 
     Date d(31,3,2333);
     ASSERT_EQ(d.getDay(),31);
-    ASSERT_EQ(d.getMonth(),2);
+    ASSERT_EQ(d.getMonth(),3);
     ASSERT_EQ(d.getYear(),2333);
 
-    d.setMonth(9);
-    ASSERT_EQ(d.getMonth(),9); //test fallisce perche settembre non ha 31gg
+    try{
+        d.setMonth(9);
+        FAIL() <<"Expected Too many days for this month";
+    }catch (runtime_error const & err){
+        EXPECT_EQ(err.what(),string("Too many days for this month"));
+    }
+
     ASSERT_EQ(d.getMonth(),3); //test passato perche rimane a marzo
+
     d.setDay(25);
     ASSERT_EQ(d.getDay(),25);
     d.setYear(1900);
@@ -45,6 +51,25 @@ TEST(Todo,Checktodo){
     ASSERT_EQ(t.isCheck(),true);
     ASSERT_EQ(t.getName(),"testname");
     ASSERT_EQ(t.getStringDate(),"20/2/2333");
+
+    Agenda a("Agendatest");
+    a.addTodo(t);
+
+    try{
+        a.findTodobyname("test");
+        FAIL() << "Expexted Todo not found";
+    }catch (runtime_error const & err){
+        EXPECT_EQ(err.what(),string("Todo not found"));
+    }
+
+    ASSERT_EQ(a.findTodobyname("testname")->getName(),"testname");
+
+    try{
+        a.findTodobydate("123/123/123");
+        FAIL() <<"Expected Todo not found";
+    }catch (runtime_error const & err){
+        EXPECT_EQ(err.what(),string("Todo not found"));
+    }
 
 
 }
