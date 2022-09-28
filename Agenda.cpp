@@ -14,7 +14,7 @@ void Agenda::removeTodo(string name) {
     saveAgenda();
 }
 
-list<ToDo>::iterator Agenda::findTodobyname(string name) const {
+list<ToDo>::const_iterator Agenda::findTodobyname(string name) const {
     for(auto i=Todos.begin() ; i!=Todos.end();i++)
         if(i->getName()==name)
             return i;
