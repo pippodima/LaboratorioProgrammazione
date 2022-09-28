@@ -53,6 +53,7 @@ void Agenda::printTodoInDate(string date) const{
 void Agenda::changeCheck(string name) {
 
     findTodobyname(name)->setCheck();
+
     saveAgenda();
 }
 
