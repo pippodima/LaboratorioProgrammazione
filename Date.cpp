@@ -23,7 +23,7 @@ int Date::getMaxDays(int year) {
     switch (month) {
         case 4: //April
         case 6: //June
-        case 8: //September
+        case 9: //September
         case 11: //November
             maxDay = 30;
             break;
@@ -66,11 +66,11 @@ unsigned short Date::getMonth() const {
 void Date::setMonth(unsigned short month) {
     if (month<0||month>12)
         throw runtime_error("month number not valid");
-    int maxDay;
+    int maxDay=31;
     switch (month) {
         case 4: //April
         case 6: //June
-        case 8: //September
+        case 9: //September
         case 11: //November
             maxDay = 30;
             break;

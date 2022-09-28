@@ -18,8 +18,8 @@ public:
     void addTodo(ToDo t);
     void removeTodo(string name);
 
-    list<ToDo>::iterator findTodobyname(string name);
-    list<ToDo>::const_iterator findTodobydate(string date);
+    list<ToDo>::iterator findTodobyname(string name) const;
+    list<ToDo>::const_iterator findTodobydate(string date) const;
 
     void printAgenda() const;
     void printTodo(string name);  //chiama una funzione costante

@@ -11,7 +11,7 @@ int main() {
     Date d(31,3,2000);
     ToDo t("compleanno Alberto",d);
 
-    //d.setMonth(9); //ERRORE
+    d.setMonth(9); //ERRORE
     d.setDay(25);
 
     agenda.howManyTodo();  //test n1
